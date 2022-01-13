@@ -1,6 +1,5 @@
 # notesapp-mvc
-## A Simple MVC for Notes App
-
+A Simple MVC for Notes App
 ## Tech Stack
 1. Node.js
 2. Express.Js for Backend System
