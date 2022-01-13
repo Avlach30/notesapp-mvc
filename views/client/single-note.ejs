@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title><%=titlePage%></title>
+  <link rel="stylesheet" href="../main.css">
+  <link rel="stylesheet" href="../notes.css">
+</head>
+
+<body>
+  <%- include('../layout/navigation.ejs') %>
+
+  <main class="centered">
+    <h1>Note Details</h1>
+    <div class="grid">
+      <article class="card note-item">
+        <header class="card__header">
+          <h3 class="note__title"> <%=note.title%> </h3>
+        </header>
+        <div class="card__content">
+          <p> 
+            <i>
+              Created by <b><%=note.creator.name%></b> at <%=note.createdAt%>
+            </i> 
+          </p>
+          <p class="note__content"><%=note.content%></p>
+        </div>
+      </article>
+    </div>
+  </main>
+</body>
+
+</html>

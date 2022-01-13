@@ -1,0 +1,39 @@
+<header class="header-container">
+    <nav>
+        <ul class="navigation_item-list">
+            <li class="navigation_item">
+                <a class="<%= path === '/' ? 'active' : '' %>" href="/">Home</a>
+            </li>
+            <li class="navigation_item">
+                <a class="<%= path === '/notes' ? 'active' : '' %>" href="/notes-list">Notes List</a>
+            </li>
+            <% if (isAuthenticated) { %>
+                <li class="navigation_item">
+                    <a class="<%= path === '/add-note' ? 'active' : '' %>" href="/add-note">Add
+                        Note
+                    </a>
+                </li>
+                <% } %>
+            <li class="navigation_item">
+                <a class="<%= path === '/about' ? 'active' : '' %>" href="/about">About</a>
+            </li>
+        </ul>
+        <ul class="navigation_item-list">
+            <% if (!isAuthenticated) { %>
+                <li class="navigation_item">
+                    <a class="<%= path === '/login' ? 'active' : '' %>" href="/auth/login">Login</a>
+                </li>
+                <li class="navigation_item">
+                    <a class="<%= path === '/signup' ? 'active' : '' %>" href="/auth/signup">SignUp</a>
+                </li>
+                <% } else { %>
+                    <li class="navigation_item">
+                        <form action="/auth/logout" method="post">
+                            <input type="hidden" name="_csrf" value="<%= csrfToken %>">
+                            <button type="submit">Logout</button>
+                        </form>
+                    </li>
+                    <% } %>
+        </ul>
+    </nav>
+</header>

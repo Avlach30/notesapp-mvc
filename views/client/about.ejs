@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title><%= titlePage %></title>
+  <link rel="stylesheet" href="../main.css">
+</head>
+
+<body>
+
+  <%- include('../layout/navigation.ejs') %>
+
+  <main>
+    <h1>About notes app</h1>
+    <ul>
+      <li>
+        <p>
+          Developer: <%= devName %>
+        </p>
+      </li>
+      <li>
+        <p>
+          Almamater: Universitas Negeri Surabaya
+        </p>
+        <img class="assets-img" src="../../logoUnesa.png" alt="logo_unesa">
+      </li>
+      <li>
+        <p>
+          Dream Job: Citiasia Inc.
+        </p>
+        <img class="assets-img" src="../../citiasia_logo.png" alt="logo_citiasia">
+      </li>
+    </ul>
+</body>
+
+</html>

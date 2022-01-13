@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title><%=titlePage%></title>
+  <link rel="stylesheet" href="../main.css">
+  <link rel="stylesheet" href="../form.css">
+</head>
+
+<body>
+  <%- include('../layout/navigation.ejs') %>
+
+  <main>
+    <form class="signup-form" action="/auth/signup" method="POST" novalidate>
+      <h1>Sign up page</h1>
+      <% if (errorMessage) { %>
+        <p><%=errorMessage%></p>
+      <% } %>
+      <div class="form-control">
+        <label for="name">Name</label>
+        <input type="name" name="name" id="name" value="<%= oldValue.name %>">
+      </div>
+      <div class="form-control">
+        <label for="email">E-Mail</label>
+        <input type="email" name="email" id="email" value="<%= oldValue.email %>">
+      </div>
+      <div class="form-control">
+        <label for="password">Password</label>
+        <input type="password" name="password" id="password" value="<%= oldValue.password %>">
+      </div>
+      <div class="form-control">
+        <label for="confirmPassword">Confirm Password</label>
+        <input type="password" name="confirmPassword" id="confirmPassword" value="<%= oldValue.confirmPassword %>">
+      </div>
+      <input type="hidden" name="_csrf" value="<%= csrfToken %>">
+      <button class="btn" type="submit">SignUp</button>
+    </form>
+  </main>
+</body>
+
+</html>
