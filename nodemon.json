@@ -2,6 +2,7 @@
   "env": {
     "MONGO_USER": "root",
     "MONGO_PASSWORD": "root",
-    "MONGO_DEFAULT_DATABASE": "notes-app"
+    "MONGO_DEFAULT_DATABASE": "notes-app",
+    "PORT": 5000
   }
 }
