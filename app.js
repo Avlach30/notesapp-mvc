@@ -6,6 +6,7 @@ const session = require('express-session');
 const dbSession = require('connect-mongodb-session')(session);
 const csrf = require('csurf');
 const helmet = require('helmet');
+const compression = require('compression');
 
 const noteRoutes = require('./router/notes');
 const authRoutes = require('./router/auth');
@@ -42,6 +43,7 @@ app.use(session({
 
 app.use(csrfProtection);
 app.use(helmet());
+app.use(compression());
 
 app.use((req, res, next) => {
   res.locals.isAuthenticated = req.session.isLogedIn;
