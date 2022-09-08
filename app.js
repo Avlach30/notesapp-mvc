@@ -41,6 +41,7 @@ app.use(session({
 }))
 
 app.use(csrfProtection);
+app.use(helmet());
 
 app.use((req, res, next) => {
   res.locals.isAuthenticated = req.session.isLogedIn;
