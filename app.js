@@ -1,4 +1,5 @@
 const path = require('path');
+const fs = require('fs');
 
 const express = require('express');
 const mongoose = require('mongoose');
@@ -7,6 +8,8 @@ const dbSession = require('connect-mongodb-session')(session);
 const csrf = require('csurf');
 const helmet = require('helmet');
 const compression = require('compression');
+const morgan = require('morgan');
+const https = require('https');
 
 const noteRoutes = require('./router/notes');
 const authRoutes = require('./router/auth');
@@ -26,6 +29,9 @@ const sessionStore = new dbSession({
 
 const csrfProtection = csrf();
 
+// const privateKey = fs.readFileSync('server.key');
+// const certificate = fs.readFileSync('server.cert');
+
 app.set('view engine', 'ejs');
 app.set('views');
 
@@ -44,6 +50,7 @@ app.use(session({
 app.use(csrfProtection);
 app.use(helmet());
 app.use(compression());
+app.use(morgan('combined'));
 
 app.use((req, res, next) => {
   res.locals.isAuthenticated = req.session.isLogedIn;
@@ -91,8 +98,11 @@ const port = process.env.PORT || 5000;
 
 mongoose.connect(MONGODB_URI)
   .then(result => {
+    // https.createServer({ key: privateKey, cert: certificate }, app).listen(port, () => {
+    //   console.log(`Server connected at http://localhost:${port}`);
+    // });
     app.listen(port, () => {
       console.log(`Server connected at http://localhost:${port}`);
-    })
+    });
   })
   .catch(error => { console.log(error) });
