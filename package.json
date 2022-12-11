@@ -9,7 +9,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start-dev": "nodemon app.js",
-    "start": "SET NODE_ENV=production&&SET MONGO_DEFAULT_DATABASE=notes-app&&SET MONGO_USER=root&&SET MONGO_PASSWORD=root&&node app.js"
+    "start": "set NODE_ENV=production&&set MONGO_DEFAULT_DATABASE=notes-app&&set MONGO_USER=root&&set MONGO_PASSWORD=root&&node app.js"
   },
   "keywords": [],
   "author": "",
